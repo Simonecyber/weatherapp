@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather App</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    
+<div class="app-wrap">
+   
+    <header>
+    <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..."/>
+    </header>
+
+    <main>
+
+<!--Dati principali-->
+        <section class="location">
+            <div class="city">Città, Stato</div>
+            <div class="date">Data</div>
+        </section>
+        <div class="current">
+            <div class="temp">--/-- <span>°C</span></div>
+                <div class="weather"></div>
+               
+<!--Icone tempo-->
+        </div>
+        <div class="imgContainer">
+    </div>
+    
+<!--Contenitori per dati non principali-->
+        <div class="minor-data">
+            <div class="dato hi"><span>Temperatura max:</span><br>--/--</div>
+            <div class="dato low"><span>Temperatura min:  </span>/--/--</div>
+            <div class="dato alba"><span>Il sole sorge alle: </span>--:--</div>
+            <div class="dato tramonto"><span>Il sole tramonta alle: </span>--:--</div>
+
+        </div>
+    
+    </main>
+    
+    <footer class="footer">
+        
+<!--Icone ai profili social-->
+        <span style="display: flex; justify-content: center; color: white;">Developed with &#x1f496 by Simone</span> 
+    <a href="https://www.linkedin.com/in/simone-franceschetti" target="__blank">
+            <img src="social/linkedin.png" alt="HTML tutorial" style="align-items: center; width:42px;height:42px;">
+          </a>
+    <a href="https://www.facebook.com/simone.franceschetti.315/" target="__blank">
+        <img src="social/facebook.png" alt="HTML tutorial" style="align-items: center; width:42px;height:42px;">
+      </a>
+    <a href="https://www.instagram.com/simone.franceschetti/" target="__blank">
+        <img src="social/instagram.png" alt="HTML tutorial" style="align-items: center; width:42px;height:42px;">
+      </a>
+
+   
+    </footer>
+
+<!--Attributo icone flaticon-->
+    <span style="display: flex; justify-content: center; color: white;"> Icone gentilmente offerte da</span> 
+    <a style="display: flex; justify-content: center; color: white;" href=" https://www.flaticon.com/"> www.flaticon.com</a>
+    </div>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
