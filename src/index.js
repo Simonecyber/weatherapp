@@ -1,5 +1,5 @@
 
-require('dotenv').config();
+
 
 const api = {
     key: "process.env.API_KEY",
