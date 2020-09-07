@@ -1,10 +1,10 @@
 
 
 
-const api = {
-    key: "process.env.API_KEY",
-    baseurl: "http://api.openweathermap.org/data/2.5/"
-}
+
+
+const api_key = process.env.APY_KEY;
+const baseurl = "http://api.openweathermap.org/data/2.5/";
 
 
 const lang = "it";
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
         lat = position.coords.latitude;
 
         //recupero file JSON
-        fetch(`${api.baseurl}weather?lat=${lat}&lon=${long}&units=metric&lang=it&appid=${api.key}`)
+        fetch(`${baseurl}weather?lat=${lat}&lon=${long}&units=metric&lang=it&appid=${api_key}`)
         .then(weather => {
             return weather.json();
 
@@ -41,7 +41,7 @@ searchBox.addEventListener('keypress', setQuery);
 
  //funzione per recuperare file JSON 
  function getResults (query) {
-    fetch(`${api.baseurl}weather?q=${query}&units=metric&lang=it&APPID=${api.key}`)
+    fetch(`${baseurl}weather?q=${query}&units=metric&lang=it&APPID=${api_key}`)
     .then(weather => {
         return weather.json();
     }).then(displayResults)

@@ -1,20 +1,23 @@
 
 const path = require('path');
-const webpack = require('webpack');
-const dotenv = require('dotenv').config( {
-    path: path.join(__dirname, '.env')
-  } );
+const Dotenv = require('dotenv-webpack');
+
 
 module.exports ={
     mode:'development',
     entry: './src/index.js',
+
+    plugins: [
+        new Dotenv(
+            {
+                path: './.env'
+            }
+        )
+    ],
+
+
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
-    plugins: [
-        new webpack.DefinePlugin( {
-          "process.env": dotenv.parsed
-        } ),
-      ],
 };
