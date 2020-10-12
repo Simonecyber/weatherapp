@@ -10,7 +10,7 @@ module.exports ={
     plugins: [
         new Dotenv(
             {
-                path: './.env'
+                path: './src/.env'
             }
         )
     ],
@@ -20,4 +20,6 @@ module.exports ={
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
+
+    watch: true
 };

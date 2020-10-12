@@ -1,7 +1,4 @@
-
-
-
-
+import _ from "lodash";
 
 const api_key = process.env.APY_KEY;
 const baseurl = "http://api.openweathermap.org/data/2.5/";
@@ -53,35 +50,45 @@ searchBox.addEventListener('keypress', setQuery);
     //console.log(weather);
     //Dati principali
     let city = document.querySelector('.location .city');
-    city.innerText = `${weather.name}, ${weather.sys.country}`;
+    const cityName = _.get(weather,"name","N/D");
+    const cityCountry = _.get(weather,"sys.country", "N/D");
+    city.innerText = `${cityName}, ${cityCountry}`;
 
     let now = new Date();
     let date = document.querySelector('.location .date');
     date.innerText = dateBuilder(now);
 
     let temp = document.querySelector('.current .temp');
-    temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
+    const temperature = _.get(weather,"main.temp", "N/D");
+    temp.innerHTML = `${Math.round(temperature)}<span>°C</span>`;
 
     let weather_el = document.querySelector('.current .weather');
-    weather_el.innerText = (weather.weather[0].description).toUpperCase();
+    const description = _.get(weather,"weather[0].description", "N/D");
+    weather_el.innerText = (description).toUpperCase();
 
 //icone tempo
     let iconWeather = document.querySelector('.imgContainer');
-    iconWeather.innerHTML = `<img class="iconeTempo" src="icone/${weather.weather[0].icon}.png"/>`;
+    const icon = _.get(weather, "weather[0].icon", "N/D");
+    iconWeather.innerHTML = `<img class="iconeTempo" src="icone/${icon}.png"/>`;
 
 //dati minori
     let hi = document.querySelector('.hi ');
-    hi.innerHTML = `<span style="margin-right:10px;">Temperatura max:</span>${Math.round(weather.main.temp_max)}°C`;
+    const tempMax = _.get(weather, "main.temp_max", "N/D");
+    hi.innerHTML = `<span style="margin-right:10px;">Temperatura max:</span>${Math.round(tempMax)}°C`;
 
     let low = document.querySelector('.low ');
-    low.innerHTML = `<span style="margin-right:10px;">Temperatura min:</span>${Math.round(weather.main.temp_min)}°C <br><br>`;
+    const tempMin = _.get(weather, "main.temp_min", "N/D");
+    low.innerHTML = `<span style="margin-right:10px;">Temperatura min:</span>${Math.round(tempMin)}°C <br><br>`;
 
    let sunrise = document.querySelector('.alba');
-   sunrise.innerHTML = `<sp
-   an style="margin-right:10px;">Il sole sorge alle:</span>${msToTime(weather.sys.sunrise)}`;
+   const alba = _.get(weather, "sys.sunrise", "N/D");
+   sunrise.innerHTML = `<span style="margin-right:10px;">Il sole sorge alle:</span>${msToTime(alba)}`;
 
    let sunset = document.querySelector('.tramonto');
-   sunset.innerHTML = `<span style="margin-right:10px;">Il sole tramonta alle:</span>${msToTime(weather.sys.sunset)}`;
+   const tramonto = _.get(weather, "sys.sunset", "N/D");
+   sunset.innerHTML = `<span style="margin-right:10px;">Il sole tramonta alle:</span>${msToTime(tramonto)}`;
+
+
 
 };
 

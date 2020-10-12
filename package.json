@@ -13,5 +13,8 @@
     "dotenv-webpack": "^2.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
   }
 }
